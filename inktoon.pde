@@ -62,7 +62,9 @@ void mouseDragged(){
 
 void keyPressed() {
   if ( key == 'c' ) {
-    background( 255 ); //white
+  noTint();
+  img = loadImage( "background.png" );
+  image(img, 0, 0);
   }
   if (key == 'o'){
     colorMode = "orange";
