@@ -6,10 +6,11 @@ color blue = color(0, 0, 255);
 color red = color(255, 0, 0);
 color green = color(0, 255, 0);
 
+int t = 0; //for test
+
 void setup() {
   size( 600, 600 );
   smooth();
-//  background( 255 ); //0:black 255:white
   img = loadImage( "background.png" );
   image(img, 0, 0);
 }
@@ -20,43 +21,29 @@ void draw() {
   displayColorRatio();
 }
 
-//void mouseClicked() {
-//  stroke( #0000ff );
-//  strokeWeight( 1 );
-//  point( mouseX, mouseY );
-//}
+void mouseClicked() {
+
+}
 
 void mouseReleased(){
   pushMatrix();
-  img = loadImage( "ao-.png" ); //500*500
-  translate(mouseX-(i/2), mouseY-(i/2));
-  rotate(radians(random(30))); //rotate atomawasahi
-  //if (colorMode == "blue"){
-  //  tint(blue);
-  //}
-  //else tint(255,165,0);
-  image(img, 0, 0, i, i);
+  img = loadImage( "shiro.png" ); //500*500
+  if (colorMode == "blue"){
+    tint(blue);
+  }
+  else tint(255,165,0);
+  img.resize(i, i);
+  translate(mouseX-i/2, mouseY-i/2);
+  rotate(radians(t));
+  image(img, 0, 0);
   popMatrix();
-  
-  //stroke(#0000ff); //blue
-  //strokeWeight(i); //rect size
-  //point( mouseX, mouseY );
-  //for(j=0; j<i/5; j++){
-  //  stroke(#0000ff); //blue
-  //  strokeWeight(random(i)/5); //rect size
-  //  point( mouseX+random(i)/1.8, mouseY+random(i)/1.8);
-  //  strokeWeight(random(i)/5); //rect size
-  //  point( mouseX+random(i)/1.8, mouseY-random(i)/1.8);
-  //  strokeWeight(random(i)/5); //rect size
-  //  point( mouseX-random(i)/1.8, mouseY+random(i)/1.8);
-  //  strokeWeight(random(i)/5); //rect size
-  //  point( mouseX-random(i)/1.8, mouseY-random(i)/1.8);
-  //}
+ 
+ t += 90;
 }
 
 void mouseDragged(){
   //stroke( #0000ff ); //blue
-  //strokeWeight( 5 ); //rect size
+  //strokeWeight( 5 ); //point size
   //point( mouseX, mouseY ); 
 }
 
