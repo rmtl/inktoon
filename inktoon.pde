@@ -28,13 +28,13 @@ void draw() {
 
 void mouseReleased(){
   pushMatrix();
-  img = loadImage( "splatter.png" ); //500*500
+  img = loadImage( "ao-.png" ); //500*500
   translate(mouseX-(i/2), mouseY-(i/2));
-//  rotate(radians(random(360))); //rotate atomawasahi
-  if (colorMode == "blue"){
-    tint(blue);
-  }
-  else tint(255,165,0);
+  rotate(radians(random(30))); //rotate atomawasahi
+  //if (colorMode == "blue"){
+  //  tint(blue);
+  //}
+  //else tint(255,165,0);
   image(img, 0, 0, i, i);
   popMatrix();
   
