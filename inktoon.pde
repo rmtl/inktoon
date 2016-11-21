@@ -33,9 +33,11 @@ void mouseReleased(){
   }
   else tint(255,165,0);
   img.resize(i, i);
-  translate(mouseX-i/2, mouseY-i/2);
+  translate(mouseX, mouseY);
   rotate(radians(t));
+  imageMode(CENTER);
   image(img, 0, 0);
+  imageMode(CORNER);
   popMatrix();
  
  t += 90;
