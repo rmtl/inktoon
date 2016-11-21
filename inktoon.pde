@@ -2,9 +2,7 @@ int i, j, k, l, p = 0;
 String colorMode = "blue" ;
 float r, g, bpix, opix = 0;
 PImage img;
-color blue = color(0, 0, 255);
-color red = color(255, 0, 0);
-color green = color(0, 255, 0);
+color red = color(255, 0, 0), green = color(0, 255, 0), blue = color(0, 0, 255), orange = color(255, 133, 0); 
 
 int t = 0; //for test
 
@@ -31,11 +29,13 @@ void mouseReleased(){
   if (colorMode == "blue"){
     tint(blue);
   }
-  else tint(255,165,0);
+  else tint(orange);
   img.resize(i, i);
-  translate(mouseX-i/2, mouseY-i/2);
+  translate(mouseX, mouseY);
   rotate(radians(t));
+  imageMode(CENTER);
   image(img, 0, 0);
+  imageMode(CORNER);
   popMatrix();
  
  t += 90;
@@ -69,8 +69,8 @@ void displayColorRatio(){
     for(k=0; k<width; k++){
       for(l=0; l<height-20; l++){
          p = get(k,l);
-         if(red(p) == 0 && green(p)== 0 && blue(p) == 114) bpix++;
-         if(red(p) == 45 && green(p)== 138 && blue(p) == 0) opix++;
+         if(red(p) == 0 && green(p)== 0 && blue(p) == 255) bpix++;
+         if(red(p) == 255 && green(p)== 133 && blue(p) == 0) opix++;
       }
     }
     
