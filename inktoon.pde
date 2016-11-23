@@ -2,9 +2,7 @@ int i, j, k, l, p = 0;
 String colorMode = "blue" ;
 float r, g, bpix, opix = 0;
 PImage img;
-color red = color(255, 0, 0), green = color(0, 255, 0), blue = color(0, 0, 255), orange = color(255, 133, 0); 
-
-int t = 0; //for test
+color blue = color(0, 0, 255), orange = color(255, 133, 0); 
 
 void setup() {
   size( 600, 600 );
@@ -25,26 +23,21 @@ void mouseClicked() {
 
 void mouseReleased(){
   pushMatrix();
-  img = loadImage( "shiro.png" ); //500*500
+  img = loadImage( "shiro.png" ); //900*900
   if (colorMode == "blue"){
     tint(blue);
   }
   else tint(orange);
   img.resize(i, i);
   translate(mouseX, mouseY);
-  rotate(radians(t));
+  rotate(radians(random(360)));
   imageMode(CENTER);
   image(img, 0, 0);
   imageMode(CORNER);
   popMatrix();
- 
- t += 90;
 }
 
 void mouseDragged(){
-  //stroke( #0000ff ); //blue
-  //strokeWeight( 5 ); //point size
-  //point( mouseX, mouseY ); 
 }
 
 void keyPressed() {
@@ -69,8 +62,8 @@ void displayColorRatio(){
     for(k=0; k<width; k++){
       for(l=0; l<height-20; l++){
          p = get(k,l);
-         if(red(p) == 0 && green(p)== 0 && blue(p) == 255) bpix++;
-         if(red(p) == 255 && green(p)== 133 && blue(p) == 0) opix++;
+         if(red(p) == 0 && green(p)== 0 && blue(p) > 240) bpix++;
+         if(red(p) > 240 && green(p) > 130 && blue(p) == 0) opix++;
       }
     }
     
